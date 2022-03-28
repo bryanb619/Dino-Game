@@ -11,7 +11,9 @@ public class Cross_Hair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CrossHair();
+        Vector2 mouseCursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        transform.position = mouseCursorPos;
     }
 
     private void CrossHair()

@@ -36,9 +36,6 @@ public class Player : MonoBehaviour
         DetectPlayerInput();
         //CameraRotation();
 
-        CrossHair();
-
-
     }
 
     private void FixedUpdate()
