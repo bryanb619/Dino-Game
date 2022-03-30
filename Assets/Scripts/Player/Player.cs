@@ -33,10 +33,5 @@ public class Player : MonoBehaviour
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
-
-
-    
-
-   
  
 }

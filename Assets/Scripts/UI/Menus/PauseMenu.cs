@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -7,31 +7,31 @@ public class PauseMenu : MonoBehaviour
     // Variables 
 
     // game paused bool 
-    public static bool Paused = false;
+    public static bool _Paused = false;
 
     //  Pause Menu Canvas
-    public GameObject pauseMenu;
+    public GameObject _pauseMenu;
+
+    // Options menu 
+    public GameObject _OtptionsMenu;
 
     // Update is called once per frame
-
-    void Start()
-    {
-        Cursor.visible = false;
-    }
-
     void Update()
     {
 
         KeyDetect();
-        
-
+ 
     }
 
     void FixedUpdate()
     {
-        if (!Paused)
+        if (!_Paused)
         {
             Cursor.visible = false;
+        }
+        if (_Paused == true)
+        {
+            Cursor.visible = true;
         }
         
     }
@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Paused)
+            if (_Paused)
             {
                 Resume();
             }
@@ -53,14 +53,14 @@ public class PauseMenu : MonoBehaviour
     }
 
     // method Resume
-    void Resume()
+    public void Resume()
     {
 
-        pauseMenu.SetActive(false);
+        _pauseMenu.SetActive(false);
 
         Time.timeScale = 1f;
 
-        Paused = false;
+        _Paused = false;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
@@ -70,44 +70,57 @@ public class PauseMenu : MonoBehaviour
 
     }
     // method pause
-    void Pause()
+    public void Pause()
     {
 
 
-        pauseMenu.SetActive(true);
+        _pauseMenu.SetActive(true);
 
         Time.timeScale = 0f;
 
-        Paused = true;
+        _Paused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
-
     }
 
-    // buttons
-    public void Resumeutton()
+    // buttons 
+
+    // Pause Menu
+    public void ResumeButton()
     {
 
-        pauseMenu.SetActive(false);
+        _pauseMenu.SetActive(false);
 
         Time.timeScale = 1f;
 
-        Paused = false;
+        _Paused = false;
 
     }
 
-    public void MenuButton()
+    // OPTIONS
+    public void OptionsButton()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Main_Menu");
-        Debug.Log("Scene Loaded");
-
+        _OtptionsMenu.SetActive(true);
     }
 
+    // EXIT
     public void ExitButton()
     {
         Application.Quit();
         Debug.Log("Game is terminated");
     }
+
+    // Options Menu
+
+    // BACK BUTTON
+
+    public void BakcButton()
+    {
+        _pauseMenu.SetActive(true);
+        _OtptionsMenu.SetActive(false);
+
+    }
+
+
+    // FUTHER OPTIONS
 }
