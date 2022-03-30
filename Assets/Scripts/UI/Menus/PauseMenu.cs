@@ -14,9 +14,9 @@ public class PauseMenu : MonoBehaviour
 
     // Update is called once per frame
 
-    private void Start()
+    void Start()
     {
-        //Cursor.visible = false;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -25,6 +25,15 @@ public class PauseMenu : MonoBehaviour
         KeyDetect();
         
 
+    }
+
+    void FixedUpdate()
+    {
+        if (!Paused)
+        {
+            Cursor.visible = false;
+        }
+        
     }
 
     private void KeyDetect()
