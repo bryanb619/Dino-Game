@@ -10,7 +10,12 @@ public class Cross_Hair : MonoBehaviour
     void Update()
     {
         target = transform.GetComponent <Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
-        CrossHair.transform.position =  new Vector2(target.x, target.y);    
+        CrossHair.transform.position =  new Vector2(target.x, target.y);
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 
 
