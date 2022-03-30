@@ -13,11 +13,6 @@ public class Cross_Hair : MonoBehaviour
         CrossHair.transform.position =  new Vector2(target.x, target.y);
     }
 
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
-
 
     /*private void Awake()
     {

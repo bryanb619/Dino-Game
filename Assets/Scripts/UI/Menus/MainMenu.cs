@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         //Load Game scene (start game)
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("LevelScene");
     }
 
     // options
