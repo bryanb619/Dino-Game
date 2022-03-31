@@ -4160,7 +4160,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 27732385}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resumeutton
+        m_MethodName: ResumeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

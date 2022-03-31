@@ -19,6 +19,16 @@ public class Level_ChooserMenu : MonoBehaviour
 
     }
 
+    // Jungle level
+    public void JungleButton()
+    {
+        // load Magic forest
+        SceneManager.LoadScene("Level_Jungle");
+
+    }
+
+
+
     public void BackButton()
     {
         SceneManager.LoadScene("StartMenu");
