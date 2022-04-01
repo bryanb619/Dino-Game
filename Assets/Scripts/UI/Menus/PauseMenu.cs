@@ -28,10 +28,12 @@ public class PauseMenu : MonoBehaviour
         if (!_Paused)
         {
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
         }
         if (_Paused == true)
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         
     }

@@ -6,6 +6,11 @@ public class Cross_Hair : MonoBehaviour
     private Vector3 target;
 
 
+    void FixedUpdate()
+    {
+        
+    }
+
 
     void Update()
     {
