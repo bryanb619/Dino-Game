@@ -6,17 +6,21 @@ public class Cross_Hair : MonoBehaviour
     private Vector3 target;
 
 
-    void FixedUpdate()
-    {
-        
-    }
-
 
     void Update()
     {
-        target = transform.GetComponent <Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
-        CrossHair.transform.position =  new Vector2(target.x, target.y);
+        CrossHairUpdate();
+
     }
+
+    private void CrossHairUpdate()
+    {
+        
+        target = transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
+        CrossHair.transform.position = new Vector2(-target.x, -target.y);
+    }
+
+
 
 
     /*private void Awake()
