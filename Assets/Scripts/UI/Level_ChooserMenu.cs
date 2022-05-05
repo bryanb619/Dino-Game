@@ -41,7 +41,7 @@ public class Level_ChooserMenu : MonoBehaviour
     // Button 6 Western
     public void WesternButton()
     {
-        SceneManager.LoadScene("Level_Dungeon");
+        SceneManager.LoadScene("Level_Western");
     }
 
 
