@@ -7,8 +7,21 @@ public class Player : MonoBehaviour
 
 
     // Shoot config
+    [Header("Shoot Settings")]
     public Transform firePoint;
     public GameObject bulletPrefab;
+
+    private float shootSpeed = 10f;
+    private float timeToShoot = 1.3f;
+    private float orginalTime;
+
+    private float fireRate = 0.8f;
+    private float nextFire = 0f;
+
+    void Start()
+    {
+        orginalTime = timeToShoot;
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,7 +36,13 @@ public class Player : MonoBehaviour
         // Fire
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            if (Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Shoot();
+            }
+
+                
         }
 
         
