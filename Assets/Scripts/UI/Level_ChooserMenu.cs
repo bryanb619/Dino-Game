@@ -15,7 +15,7 @@ public class Level_ChooserMenu : MonoBehaviour
     public void MagicForestButton()
     {
         // load Magic forest
-        SceneManager.LoadScene("Level_MagicForest");
+        SceneManager.LoadScene("Level_MagicForest_Sprite");
 
     }
 
@@ -25,6 +25,23 @@ public class Level_ChooserMenu : MonoBehaviour
         // load Magic forest
         SceneManager.LoadScene("Level_Jungle");
 
+    }
+    // Button 4 PIRATES
+    public void IslandButton()
+    {
+        SceneManager.LoadScene("Level_Island");
+    }
+
+    // Button 5 Dungeon
+    public void DungeonButton()
+    {
+        SceneManager.LoadScene("Level_Dungeon");
+    }
+
+    // Button 6 Western
+    public void WesternButton()
+    {
+        SceneManager.LoadScene("Level_Dungeon");
     }
 
 
