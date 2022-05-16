@@ -57,7 +57,8 @@ public class Level_ChooserMenu : MonoBehaviour
     // In Menus back button
     public void BackToMenu()
     {
-        if (Menu1 == true || Menu2 == true || Menu3 == true)
+        // Check menu conditions
+        if (Menu1 || Menu2 || Menu3)
         {
 
             Menu1.SetActive(false);
@@ -71,7 +72,7 @@ public class Level_ChooserMenu : MonoBehaviour
         
     }
 
-    // Main Menu Scene BAck Button
+    // Main Menu Scene Back Button
     public void BackToStartMenu()
     {
         SceneManager.LoadScene("StartMenu");
