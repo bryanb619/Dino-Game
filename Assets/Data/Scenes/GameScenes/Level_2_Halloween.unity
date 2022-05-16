@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &27732381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -237,6 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b598ee28e94ad6347b08881b8897cda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Paused: 0
+  PauseCanvas: {fileID: 27732380}
   _pauseMenu: {fileID: 88157972}
   _OtptionsMenu: {fileID: 2097880012}
 --- !u!1 &56748136
@@ -854,8 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab504ff925a13024ca2d0977181a85fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 679177298}
-  bulletPrefab: {fileID: 7078813457061498941, guid: 4e6355467fb2a184ba04c3f5f88215eb, type: 3}
 --- !u!23 &324235781
 MeshRenderer:
   m_ObjectHideFlags: 0

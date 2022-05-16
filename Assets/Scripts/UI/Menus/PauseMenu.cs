@@ -1,19 +1,26 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
 
     // Variables 
 
-    // game paused bool 
-    public static bool _Paused = false;
+    // game paused bool
+    [HideInInspector]
+    public bool _Paused = false;
 
     //  Pause Menu Canvas
-    public GameObject _pauseMenu;
+    [SerializeField]
+    public GameObject  PauseCanvas,_pauseMenu, _OtptionsMenu;
 
-    // Options menu 
-    public GameObject _OtptionsMenu;
+    private void Start()
+    {
+        PauseCanvas.SetActive(true);
+        _pauseMenu.SetActive(false);
+        _OtptionsMenu.SetActive(false);
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -108,8 +115,9 @@ public class PauseMenu : MonoBehaviour
     // EXIT
     public void ExitButton()
     {
-        Application.Quit();
-        Debug.Log("Game is terminated");
+        //Application.Quit();
+        Debug.Log("Star Menu Loaded");
+        SceneManager.LoadScene("StartMenu");
     }
 
     // Options Menu
