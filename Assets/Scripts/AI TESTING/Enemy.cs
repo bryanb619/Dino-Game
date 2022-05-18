@@ -2,25 +2,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    private Transform DinoHead, SheepPrefab;
 
-	public int health = 100;
+    //public GameObject deathEffect;
 
-	public GameObject deathEffect;
+    public void Attach()
+    {
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        // Destroy(gameObject);
+        Debug.Log("Dino was shot");
 
-	public void TakeDamage(int damage)
-	{
-		health -= damage;
+        // HOW TO ATTACH SHEEP
+        DinoHead.transform.parent = SheepPrefab.transform;
 
-		if (health <= 0)
-		{
-			Die();
-		}
-	}
 
-	void Die()
-	{
-		Instantiate(deathEffect, transform.position, Quaternion.identity);
-		Destroy(gameObject);
-		Debug.Log("Dino was shot");
-	}
+        
+    }
 }

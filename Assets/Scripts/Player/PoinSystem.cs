@@ -3,14 +3,24 @@ using UnityEngine.UI;
 
 public class PoinSystem : MonoBehaviour
 {
-    [SerializeField]
+    
     private static PoinSystem instance;
 
-    [SerializeField]
+    [HideInInspector]
+    public static PoinSystem Instance => instance;
+
+
+     [SerializeField]
     private Text _scoreText, _highScoreText;
 
     private int _score;
     private int _highScore;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +40,7 @@ public class PoinSystem : MonoBehaviour
         }
     }
 
-    private void AddPoint()
+    public void AddPoint()
     {
         _score += 1;
         _scoreText.text = _score.ToString();
