@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ClawInput : MonoBehaviour
 {
+    #region Variables
     // Player default anim
     //public Animator _playerAnimator;
-
 
     // Shoot config
     //[Header("Shoot Settings")]
@@ -18,11 +18,18 @@ public class ClawInput : MonoBehaviour
     private float fireRate = 0.8f;
     private float nextFire = 0f;
 
+    private SheepShooter shooter;
 
 
     private bool GoLeft, GoRight;
 
+    [SerializeField]
+    private GameObject SheepPrefab;
 
+    [SerializeField]
+    private Transform ClawFirePoint;
+
+    #endregion
 
     void Start()
     {
@@ -34,6 +41,22 @@ public class ClawInput : MonoBehaviour
     {
         // Detect Player Input
         PlayerInput();
+        FireInput();
+
+    }
+
+    private void FireInput()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            if (Time.time > nextFire)
+            {
+                
+                nextFire = Time.time + fireRate;
+                Instantiate(SheepPrefab, ClawFirePoint.position, ClawFirePoint.rotation);
+
+            }
+        }
     }
 
    private void PlayerInput()
@@ -72,39 +95,14 @@ public class ClawInput : MonoBehaviour
         // Go left
         if(GoLeft)
         {
-            gameObject.transform.Translate(-0.03f ,0, 0);
+            gameObject.transform.Translate(-0.01f ,0, 0);
         }
 
         // Go Right
         if(GoRight)
         {
-            gameObject.transform.Translate(0.03f, 0, 0);
+            gameObject.transform.Translate(0.01f, 0, 0);
         }
     }
-
-
-    /*
-    private void DetectPlayerInput()
-    {
-        // Fire
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (Time.time > nextFire)
-            {
-                nextFire = Time.time + fireRate;
-                Shoot();
-            }
-
-                
-        }
-
-        
-    }
-
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-    }
-    */
  
 }

@@ -2,6 +2,9 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+# Ignore addressables build data - we just need the bin file to generate it again
+/AddressablesBuilds/ServerData/
+/[Aa]ssetBundles/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -9,9 +12,12 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
+
+# Samples from package manager
+/[Aa]ssets/Samples
+[Aa]ssets/Samples.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -53,8 +59,14 @@ sysinfo.txt
 
 # Builds
 *.apk
-*.unitypackage
+//*.unitypackage
 
 # Crashlytics generated file
 crashlytics-build.properties
+Assets/_AddressablesContents/Commom/Models/FPF/JoaoFelix/2020JoaoFelixExport/textures/m_JoaoFelix2020/Mustache_Sparse/Mustache_Sparse/Beard_Transparency_Pbr/Beard_Transparency_Pbr_Hair ID Map.png.meta
+Assets/_AddressablesContents/Commom/Models/FPF/JoaoFelix/2020JoaoFelixExport/textures/m_JoaoFelix2020/Female_Flat/Female_Flat/Female_Flat_Transparency_Pbr/Female_Flat_Transparency_Pbr_Hair ID Map.png.meta
+Assets/_AddressablesContents/Commom/Models/FPF/JoaoFelix/2020JoaoFelixExport/textures/m_JoaoFelix2020/Mustache_Sparse/Mustache_Sparse/Beard_Transparency_Pbr/Beard_Transparency_Pbr_Hair Flow Map.png.meta
+Assets/_AddressablesContents/Commom/Models/FPF/JoaoFelix/2020JoaoFelixExport/textures/m_JoaoFelix2020/Mustache_Sparse/Mustache_Sparse/Beard_Transparency_Pbr/Beard_Transparency_Pbr_Hair Root Map.jpg.meta
+Assets/_AddressablesContents/Commom/Models/FPF/JoaoFelix/2020JoaoFelixExport/textures/m_JoaoFelix2020/Mustache_Sparse/Mustache_Sparse/Beard_Transparency_Pbr/Beard_Transparency_Pbr_MetallicAlpha.png.meta
+Assets/_AddressablesContents/Commom/Models/FPF/JoaoFelix/2020JoaoFelixExport/textures/m_JoaoFelix2020/Mustache_Sparse/Mustache_Sparse/Beard_Transparency_Pbr/Beard_Transparency_Pbr_vertexcolormap.jpg.meta
 

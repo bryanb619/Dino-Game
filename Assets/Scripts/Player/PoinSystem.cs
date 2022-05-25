@@ -10,11 +10,10 @@ public class PoinSystem : MonoBehaviour
     public static PoinSystem Instance => instance;
 
 
-     [SerializeField]
+    [SerializeField]
     private Text _scoreText, _highScoreText;
 
-    private int _score;
-    private int _highScore;
+    private int _score, _highScore;
 
 
     private void Awake()
@@ -27,23 +26,32 @@ public class PoinSystem : MonoBehaviour
     {
         _score = 0;
 
-        _scoreText.text = _scoreText.ToString();
+        _scoreText.text = "POINTS: " + _score.ToString() ;
+        _highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
 
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyUp(KeyCode.P))
         {
-            AddPoint();
+            instance.AddPoint();
         }
     }
 
     public void AddPoint()
     {
         _score += 1;
-        _scoreText.text = _score.ToString();
+
+        _highScore = _score;
+        
+        _scoreText.text = "POINTS: " + _score.ToString() ;
+        _highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
+
+        Debug.Log("Score is: " + _score);
     }
 
 }

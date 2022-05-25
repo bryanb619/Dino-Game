@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
-    private Transform DinoHead, SheepPrefab;
 
     //public GameObject deathEffect;
-
+    void Start()
+    {
+        
+    }
     public void Attach()
     {
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -14,9 +15,14 @@ public class Enemy : MonoBehaviour
         Debug.Log("Dino was shot");
 
         // HOW TO ATTACH SHEEP
-        DinoHead.transform.parent = SheepPrefab.transform;
+
+        //prefabInstantiation = Instantiate(objectPrefab, position, rotation) as GameObject;
+
+        //prefabInstantiation.transform.parent = DinoHead.transform;
 
 
-        
+
+
+
     }
 }

@@ -4,41 +4,39 @@ public class SheepShooter : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody rb;
-
-    [SerializeField]
-    private GameObject SheepPrefab;
-
-    [SerializeField]
-    private Transform ClawFirePoint;
-
-
-
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         // rb.velocity = Vector3.zero;
 
-        Instantiate(SheepPrefab, ClawFirePoint.position, ClawFirePoint.rotation);
+       
     }
 
     
     // Get dino Info 
     void OnTriggerEnter(Collider hitInfo)
     {
-        PoinSystem point = hitInfo.GetComponent<PoinSystem>();
+        //PoinSystem point = hitInfo.GetComponent<PoinSystem>();
         Enemy enemy = hitInfo.GetComponent<Enemy>();
 
-        if (point != null && enemy != null)
+        if ( enemy != null)
         {
+
+            Debug.Log("Dino HIT");
             // add point
             PoinSystem.Instance.AddPoint();
 
             // attach to sheep // attach sheep to dino Y axis POSITION
-            enemy.Attach();
+            //enemy.Attach();
 
-            
-            
+                      
         }
         
     }
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+
 }
