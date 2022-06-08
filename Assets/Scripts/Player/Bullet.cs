@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
-{
+{/*
 	public float speed = 20f;
 	public int damage = 100;
 	public Rigidbody rb;
@@ -37,5 +37,5 @@ public class Bullet : MonoBehaviour
 		Destroy(gameObject);
 	}
 
-
+	*/
 }

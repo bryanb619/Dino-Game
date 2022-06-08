@@ -1,36 +1,47 @@
 using UnityEngine;
 
-public class SheepShooter : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody rb;
+    private PoinSystem points;
+
     // Start is called before the first frame update
     public void Start()
     {
-        // rb.velocity = Vector3.zero;
-
-       
+        // rb.velocity = Vector3.zero; 
     }
 
-    
     // Get dino Info 
     void OnTriggerEnter(Collider hitInfo)
     {
         //PoinSystem point = hitInfo.GetComponent<PoinSystem>();
         Enemy enemy = hitInfo.GetComponent<Enemy>();
+        HatNoZone NOZONE = hitInfo.GetComponent<HatNoZone>();
 
-        if ( enemy != null)
+
+        if (NOZONE != null)
+        {
+            Destroy(gameObject);
+            NOZONE.AddLog();
+        }
+
+        else if ( enemy != null)
         {
 
             Debug.Log("Dino HIT");
             // add point
             PoinSystem.Instance.AddPoint();
+           
+            
+            // change sprite
+            enemy.DinoHit();
 
-            // attach to sheep // attach sheep to dino Y axis POSITION
-            //enemy.Attach();
+            Destroy(gameObject);
 
-                      
+
         }
+        
         
     }
     void OnBecameInvisible()

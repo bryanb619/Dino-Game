@@ -3,26 +3,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    //public GameObject deathEffect;
-    void Start()
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite newSprite;
+    [SerializeField] private BoxCollider boxCollider;
+
+    //[SerializeField] private GameObject currentObject;
+
+
+    public void DinoHit()
     {
-        
+        ApplyHit();
     }
-    public void Attach()
+
+    private void ApplyHit()
     {
-        //Instantiate(deathEffect, transform.position, Quaternion.identity);
-        // Destroy(gameObject);
-        Debug.Log("Dino was shot");
-
-        // HOW TO ATTACH SHEEP
-
-        //prefabInstantiation = Instantiate(objectPrefab, position, rotation) as GameObject;
-
-        //prefabInstantiation.transform.parent = DinoHead.transform;
-
-
-
-
-
+        spriteRenderer.sprite = newSprite;
+        Destroy(boxCollider);
     }
 }
