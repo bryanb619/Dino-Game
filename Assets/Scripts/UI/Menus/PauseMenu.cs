@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class PauseMenu : MonoBehaviour
     //  Pause Menu Canvas
     [SerializeField]
     public GameObject  PauseCanvas,_pauseMenu, _OtptionsMenu;
+
+    // Event Sy
+
+
+
 
     private void Start()
     {
@@ -28,6 +34,10 @@ public class PauseMenu : MonoBehaviour
 
         KeyDetect();
  
+    }
+    public void DestroyMenu()
+    {
+        Destroy(gameObject);
     }
 
     void FixedUpdate()
@@ -47,7 +57,7 @@ public class PauseMenu : MonoBehaviour
 
     private void KeyDetect()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetButtonDown("Pause"))
         {
             if (_Paused)
             {

@@ -10,13 +10,15 @@ public class PoinSystem : MonoBehaviour
     public static PoinSystem Instance => instance;
 
 
-    [SerializeField]
-    private Text _scoreText, _highScoreText;
+    [SerializeField] private Text _scoreText;//, _highScoreText;
 
-    private int _score, _highScore, NewScore = 10;
+    private int _score, NewScore = 10;
 
 
     [SerializeField] private GameObject DinoHat1, DinoHat2, DinoHat3, DinoHat4, DinoHat5, DinoHat6, DinoHat7, DinoHat8, DinoHat9, DinoHat10;
+
+    [SerializeField] private PauseMenu pause;
+
 
 
     private void Awake()
@@ -28,7 +30,7 @@ public class PoinSystem : MonoBehaviour
     void Start()
     {
         _score = 0;
-
+        
         DinoHat1.SetActive(false);
         DinoHat2.SetActive(false);
         DinoHat3.SetActive(false);
@@ -38,8 +40,9 @@ public class PoinSystem : MonoBehaviour
         DinoHat7.SetActive(false);
         DinoHat8.SetActive(false);
         DinoHat9.SetActive(false);
-        DinoHat10.SetActive(false);
+        DinoHat10.SetActive(false); 
 
+        
 
         //_scoreText.text = "POINTS: " + _score.ToString() ;
         //_highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
@@ -55,16 +58,21 @@ public class PoinSystem : MonoBehaviour
         //_highScore = _score;
         if(_score == MaxScore)
         {
+            pause.DestroyMenu();
+
             DinoHat10.SetActive(true);
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
+
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
 
             _score = NewScore;
             //_highScore = NewScore;
-            _scoreText.text = "POINTS: " + _score.ToString();
-            _highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
+            _scoreText.text = "YOUR SCORE IS: " + _score.ToString();
+            //_highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
         }
         Debug.Log("Score is: " + _score);
-
+        
 
         if(_score == 2)
         {
@@ -102,7 +110,7 @@ public class PoinSystem : MonoBehaviour
         {
             DinoHat9.SetActive(true);
         }
-
+       
     }
 
 }

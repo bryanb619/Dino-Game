@@ -38,4 +38,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Data/Scenes/GameScenes/Level_3_Halloween.unity
     guid: a4b200cd719126047b0956afc5e6bef9
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 92bb0fd3309219149a34a89dc90920c5, type: 2}

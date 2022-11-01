@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ClawLeftLimit : MonoBehaviour
-{
+{/*
     private ClawInput _player;
 
     private bool _left, _right;
@@ -36,4 +36,5 @@ public class ClawLeftLimit : MonoBehaviour
             _player.ChangeBool2();
         }
     }
+    */
 }
