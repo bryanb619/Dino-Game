@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -34,11 +34,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        /*
         // print 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             Debug.Log(Gamepad.all[i].name);
         }
+        */
     }
 
     // Update is called once per frame
