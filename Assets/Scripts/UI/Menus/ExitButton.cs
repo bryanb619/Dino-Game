@@ -5,6 +5,6 @@ public class ExitButton : MonoBehaviour
 {
     public void ExitToStart()
     {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("LevelScene");
     }
 }
