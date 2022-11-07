@@ -11,9 +11,11 @@ public class PauseMenu : MonoBehaviour
     [HideInInspector]
     public bool _Paused = false;
 
-    //  Pause Menu Canvas
+    //  UI Canvas
     [SerializeField]
     public GameObject  PauseCanvas,_pauseMenu, _OtptionsMenu;
+
+    [SerializeField] private GameObject _Claw;
 
     // Event Sy
 
@@ -25,6 +27,9 @@ public class PauseMenu : MonoBehaviour
         PauseCanvas.SetActive(true);
         _pauseMenu.SetActive(false);
         _OtptionsMenu.SetActive(false);
+        _Claw.SetActive(true);
+
+
 
     }
 
@@ -76,13 +81,14 @@ public class PauseMenu : MonoBehaviour
     {
 
         _pauseMenu.SetActive(false);
+        _Claw.SetActive(true);
 
         Time.timeScale = 1f;
 
         _Paused = false;
 
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         //Cursor.lockState = CursorLockMode.Locked;
 
 
@@ -94,6 +100,7 @@ public class PauseMenu : MonoBehaviour
 
 
         _pauseMenu.SetActive(true);
+        _Claw.SetActive(false);
 
         Time.timeScale = 0f;
 
@@ -108,12 +115,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeButton()
     {
 
-        _pauseMenu.SetActive(false);
-
-        Time.timeScale = 1f;
-
-        _Paused = false;
-
+        Resume();
     }
 
     // OPTIONS

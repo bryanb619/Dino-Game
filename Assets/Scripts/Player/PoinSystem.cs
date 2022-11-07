@@ -68,7 +68,7 @@ public class PoinSystem : MonoBehaviour
 
             _score = NewScore;
             //_highScore = NewScore;
-            _scoreText.text = "YOUR SCORE IS: " + _score.ToString();
+            _scoreText.text = "SUA PONTUAÇÃO FOI: " + _score.ToString();
             //_highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
         }
         Debug.Log("Score is: " + _score);
