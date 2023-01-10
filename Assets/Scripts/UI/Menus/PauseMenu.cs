@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+using UnityEngine.UI; 
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,9 +13,13 @@ public class PauseMenu : MonoBehaviour
 
     //  UI Canvas
     [SerializeField]
-    public GameObject  PauseCanvas,_pauseMenu, _OtptionsMenu;
+    public GameObject PauseCanvas, _pauseMenu, _OtptionsMenu;
 
     [SerializeField] private GameObject _Claw;
+
+    public Slider DinoSpawnSlider;
+
+    public DinoSpawner dinoSpawnScript;
 
     // Event Sy
 
@@ -24,12 +28,17 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+
+        dinoSpawnScript = FindObjectOfType<DinoSpawner>();
+
+        DinoSpawnSlider.value = dinoSpawnScript.SpawnRate;
+
         PauseCanvas.SetActive(true);
         _pauseMenu.SetActive(false);
         _OtptionsMenu.SetActive(false);
         _Claw.SetActive(true);
 
-
+        DataCheck();
 
     }
 
@@ -38,8 +47,21 @@ public class PauseMenu : MonoBehaviour
     {
 
         KeyDetect();
- 
+        
     }
+
+
+    private void DataCheck()
+    {
+        if (PlayerPrefs.HasKey("Spawn Rate"))
+        {
+            PlayerPrefs.SetFloat("Spawn Rate", 2f);
+        }
+        else
+            Load();
+    }
+
+
     public void DestroyMenu()
     {
         Destroy(gameObject);
@@ -57,12 +79,12 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-        
+
     }
 
     private void KeyDetect()
     {
-        if(Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause"))
         {
             if (_Paused)
             {
@@ -124,6 +146,14 @@ public class PauseMenu : MonoBehaviour
         _OtptionsMenu.SetActive(true);
     }
 
+    public void SliderSpawnRate()
+    {
+        dinoSpawnScript.SpawnRate = DinoSpawnSlider.value;
+        Save();
+        
+    }
+
+
     // EXIT
     public void ExitButton()
     {
@@ -145,4 +175,19 @@ public class PauseMenu : MonoBehaviour
 
 
     // FUTHER OPTIONS
+
+
+
+    // Saved data
+
+    private void Load()
+    {
+        DinoSpawnSlider.value = PlayerPrefs.GetFloat("Spawn Rate");
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("Spawn Rate", DinoSpawnSlider.value);
+
+    }
 }

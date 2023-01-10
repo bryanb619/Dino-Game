@@ -7,7 +7,7 @@ public class Level_ChooserMenu : MonoBehaviour
     //  Menu Game Object
     [Header("Menu")]
     [SerializeField]
-    private GameObject MainLevelChooser, Menu1, Menu2, Menu3;
+    private GameObject MainLevelChooser, Menu1, Menu2, Menu3, Menu4;
 
 
     [Header("Back Buttons")]
@@ -53,6 +53,16 @@ public class Level_ChooserMenu : MonoBehaviour
 
         BackButtonInMENUS.SetActive(true);
     }
+
+    public void Menu_4() // Level Halloween Chooser
+    {
+        MainLevelChooser.SetActive(false);
+        Menu4.SetActive(true);
+
+        BackButtonInMENUS.SetActive(true);
+    }
+
+
 
     // In Menus back button
     public void BackToMenu()

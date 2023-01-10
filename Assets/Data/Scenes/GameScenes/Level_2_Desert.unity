@@ -258,6 +258,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5781200368155955013, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7630774181138234521, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7630774181138234521, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8256689047694983297, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
       propertyPath: m_Name
       value: Pause Menu Canvas
@@ -369,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &104868518 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8256689046273243219, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+  m_CorrespondingSourceObject: {fileID: 808010297556694488, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
   m_PrefabInstance: {fileID: 104868516}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

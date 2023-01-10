@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,9 @@ public class PoinSystem : MonoBehaviour
 
     [SerializeField] private Text _scoreText;//, _highScoreText;
 
-    private int _score, NewScore = 10;
+    private int _score;
+        
+    private int NewScore = 10;
 
 
     [SerializeField] private GameObject DinoHat1, DinoHat2, DinoHat3, DinoHat4, DinoHat5, DinoHat6, DinoHat7, DinoHat8, DinoHat9, DinoHat10;
@@ -56,6 +59,7 @@ public class PoinSystem : MonoBehaviour
 
         _score += point;
         //_highScore = _score;
+
         if(_score == MaxScore)
         {
             pause.DestroyMenu();
