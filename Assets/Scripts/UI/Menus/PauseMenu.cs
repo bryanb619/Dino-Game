@@ -17,6 +17,8 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private GameObject _Claw;
 
+    private float SlideValue;
+
     public Slider DinoSpawnSlider;
 
     public DinoSpawner dinoSpawnScript;
@@ -30,8 +32,6 @@ public class PauseMenu : MonoBehaviour
     {
 
         dinoSpawnScript = FindObjectOfType<DinoSpawner>();
-
-        DinoSpawnSlider.value = dinoSpawnScript.SpawnRate;
 
         PauseCanvas.SetActive(true);
         _pauseMenu.SetActive(false);
@@ -148,7 +148,32 @@ public class PauseMenu : MonoBehaviour
 
     public void SliderSpawnRate()
     {
-        dinoSpawnScript.SpawnRate = DinoSpawnSlider.value;
+
+
+        SlideValue = DinoSpawnSlider.value;
+
+
+        if(SlideValue >= 8)
+        {
+            dinoSpawnScript.SpawnRate = 2;
+
+        }
+        else if (SlideValue >= 6)
+        {
+            dinoSpawnScript.SpawnRate = 4;
+        }
+        else if (SlideValue >= 4)
+        {
+            dinoSpawnScript.SpawnRate = 6;
+        }
+        else if (SlideValue >= 2)
+        {
+            dinoSpawnScript.SpawnRate = 8;
+        }
+        else if (SlideValue >= 1)
+        {
+            dinoSpawnScript.SpawnRate = 10;
+        }
         Save();
         
     }
