@@ -23,7 +23,8 @@ public class PauseMenu : MonoBehaviour
 
     public DinoSpawner dinoSpawnScript;
 
-    // Event Sy
+
+    // Event
 
 
 
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
 
         dinoSpawnScript = FindObjectOfType<DinoSpawner>();
 
+        Time.timeScale = 1f; 
         PauseCanvas.SetActive(true);
         _pauseMenu.SetActive(false);
         _OtptionsMenu.SetActive(false);
