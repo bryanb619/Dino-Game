@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems; 
 
 public class Level_ChooserMenu : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Level_ChooserMenu : MonoBehaviour
     private GameObject MainLevelChooser, Menu1, Menu2, Menu3, Menu4;
 
 
+    [SerializeField] GameObject FirstChoose, NatureFirst, DesertFirst, HalloweenFirst; 
+
     [Header("Back Buttons")]
     [SerializeField]
     private GameObject BackButtonInMENUS,BackToStart;
@@ -18,11 +21,16 @@ public class Level_ChooserMenu : MonoBehaviour
     // FAIL SAFE CODE
     public void Start()
     {
+        Time.timeScale = 1f; 
         MainLevelChooser.SetActive(true);
 
         Menu1.SetActive(false);
         Menu2.SetActive(false);
         Menu3.SetActive(false);
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(FirstChoose);
 
         BackButtonInMENUS.SetActive(false);
 
@@ -36,6 +44,10 @@ public class Level_ChooserMenu : MonoBehaviour
         Menu1.SetActive(true);
 
         BackButtonInMENUS.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(NatureFirst);
     }
 
     public void Menu_2() // Level Desert Chooser
@@ -44,6 +56,10 @@ public class Level_ChooserMenu : MonoBehaviour
         Menu2.SetActive(true);
 
         BackButtonInMENUS.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(DesertFirst);
     }
 
     public void Menu_3() // Level Halloween Chooser
@@ -52,6 +68,10 @@ public class Level_ChooserMenu : MonoBehaviour
         Menu3.SetActive(true);
 
         BackButtonInMENUS.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(HalloweenFirst);
     }
 
     public void Menu_4() // Level Halloween Chooser
@@ -78,6 +98,9 @@ public class Level_ChooserMenu : MonoBehaviour
             BackButtonInMENUS.SetActive(false);
 
             MainLevelChooser.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+
+            EventSystem.current.SetSelectedGameObject(FirstChoose);
         }
         
     }

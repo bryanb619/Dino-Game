@@ -84,4 +84,10 @@ public class Player : MonoBehaviour
     }
 
 
+    public void Obliterate()
+    {
+        Destroy(this.gameObject);
+    }
+
+
 }

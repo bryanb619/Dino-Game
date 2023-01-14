@@ -1151,6 +1151,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.23076923
       objectReference: {fileID: 0}
+    - target: {fileID: 808010297556694488, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.45098042
+      objectReference: {fileID: 0}
+    - target: {fileID: 808010297556694488, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.90196085
+      objectReference: {fileID: 0}
+    - target: {fileID: 808010297556694488, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.93725497
+      objectReference: {fileID: 0}
     - target: {fileID: 1494789628259341624, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1299,6 +1311,10 @@ PrefabInstance:
       propertyPath: _Claw
       value: 
       objectReference: {fileID: 913041192}
+    - target: {fileID: 8256689047694983326, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: dinoSpawnScript
+      value: 
+      objectReference: {fileID: 1731945429}
     - target: {fileID: 8256689047882690399, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1762,7 +1778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DinoPrefab: {fileID: 3412746770361300228, guid: 64a70683671108149b12197a233a2338, type: 3}
   TimeToSpawn: 1.3
-  SpawnRate: 2
+  SpawnRate: 3
 --- !u!4 &1731945430
 Transform:
   m_ObjectHideFlags: 0

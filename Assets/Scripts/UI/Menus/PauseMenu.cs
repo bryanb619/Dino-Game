@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using UnityEngine.EventSystems; 
 
 public class PauseMenu : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     public DinoSpawner dinoSpawnScript;
 
-
+    [SerializeField] GameObject FirstChoose, OptionsChoose; 
     // Event
 
 
@@ -104,6 +105,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
 
+
+        EventSystem.current.SetSelectedGameObject(null);
         _pauseMenu.SetActive(false);
         _Claw.SetActive(true);
 
@@ -122,6 +125,9 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
 
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(FirstChoose);
 
         _pauseMenu.SetActive(true);
         _Claw.SetActive(false);
@@ -138,7 +144,7 @@ public class PauseMenu : MonoBehaviour
     // Pause Menu
     public void ResumeButton()
     {
-
+        
         Resume();
     }
 
@@ -146,6 +152,9 @@ public class PauseMenu : MonoBehaviour
     public void OptionsButton()
     {
         _OtptionsMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(OptionsChoose);
     }
 
     public void SliderSpawnRate()
@@ -198,6 +207,10 @@ public class PauseMenu : MonoBehaviour
         _pauseMenu.SetActive(true);
         _OtptionsMenu.SetActive(false);
 
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(FirstChoose);
+
     }
 
 
@@ -209,12 +222,12 @@ public class PauseMenu : MonoBehaviour
 
     private void Load()
     {
-        DinoSpawnSlider.value = PlayerPrefs.GetFloat("Spawn Rate");
+        dinoSpawnScript.SpawnRate = PlayerPrefs.GetFloat("Spawn Rate");
     }
 
     private void Save()
     {
-        PlayerPrefs.SetFloat("Spawn Rate", DinoSpawnSlider.value);
+        PlayerPrefs.SetFloat("Spawn Rate", dinoSpawnScript.SpawnRate);
 
     }
 }

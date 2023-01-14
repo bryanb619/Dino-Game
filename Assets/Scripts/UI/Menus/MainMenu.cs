@@ -1,12 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
 
-    public GameObject _MenuOptions; // Menu options
-    public GameObject _MenuMain; // Main Menu
+    [SerializeField] private GameObject _MenuOptions, _MenuMain;
 
+
+     // first buttons to be selected 
+    [SerializeField] private GameObject StartFirst ,OptionsFirst; 
+
+
+    private void Start()
+    {
+        Time.timeScale = 1f; 
+        _MenuMain.SetActive(true);
+        _MenuOptions.SetActive(false);
+    }
 
     // Start menu buttons
 
@@ -25,6 +36,13 @@ public class MainMenu : MonoBehaviour
 
         // set options to true
         _MenuOptions.SetActive (true);
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(OptionsFirst); 
+
+
+
     }
     // quit
     public void QuitButton ()
@@ -42,6 +60,10 @@ public class MainMenu : MonoBehaviour
     // back to main menu button
     public void BackButton()
     {
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        EventSystem.current.SetSelectedGameObject(StartFirst);
         // Set options to false
         _MenuOptions.SetActive(false);
 
