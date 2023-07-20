@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,9 +18,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseCanvas, _pauseMenu, _OtptionsMenu;
 
     [SerializeField] private GameObject _Claw;
-
-    private float SlideValue;
-
+    
     public Slider DinoSpawnSlider;
 
     public DinoSpawner dinoSpawnScript;
@@ -28,11 +27,24 @@ public class PauseMenu : MonoBehaviour
     // Event
 
 
-
+    private void Awake()
+    {
+        DataCheck();
+    }
 
     private void Start()
     {
+        
+    }
+    
 
+
+    // Update is called once per frame
+
+
+
+    private void DataCheck()
+    {
         dinoSpawnScript = FindObjectOfType<DinoSpawner>();
 
         Time.timeScale = 1f; 
@@ -40,30 +52,38 @@ public class PauseMenu : MonoBehaviour
         _pauseMenu.SetActive(false);
         _OtptionsMenu.SetActive(false);
         _Claw.SetActive(true);
-
-        DataCheck();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        KeyDetect();
         
-    }
-
-
-    private void DataCheck()
-    {
-        if (PlayerPrefs.HasKey("Spawn Rate"))
+        
+        if (!PlayerPrefs.HasKey("rateOfDinoSpawn"))
         {
-            PlayerPrefs.SetFloat("Spawn Rate", 2f);
+            PlayerPrefs.SetFloat("rateOfDinoSpawn", 5f);
+#if UNITY_EDITOR                                
+
+            Debug.Log("No Save found, Spawn rate is now: " + dinoSpawnScript.spawnRate);
+#endif
         }
         else
+        {
             Load();
+        }
+           
     }
+    
+    void Update()
+    {
+        KeyDetect();
 
+#if UNITY_EDITOR
+        
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerPrefs.DeleteAll();
+            print("all data deleted");
+        }
+#endif
+        
+        
+    }
 
     public void DestroyMenu()
     {
@@ -77,7 +97,7 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
         }
-        if (_Paused == true)
+        if (_Paused)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -104,8 +124,6 @@ public class PauseMenu : MonoBehaviour
     // method Resume
     public void Resume()
     {
-
-
         EventSystem.current.SetSelectedGameObject(null);
         _pauseMenu.SetActive(false);
         _Claw.SetActive(true);
@@ -159,33 +177,15 @@ public class PauseMenu : MonoBehaviour
 
     public void SliderSpawnRate()
     {
-
-
-        SlideValue = DinoSpawnSlider.value;
-
-
-        if(SlideValue >= 8)
-        {
-            dinoSpawnScript.SpawnRate = 2;
-
-        }
-        else if (SlideValue >= 6)
-        {
-            dinoSpawnScript.SpawnRate = 4;
-        }
-        else if (SlideValue >= 4)
-        {
-            dinoSpawnScript.SpawnRate = 6;
-        }
-        else if (SlideValue >= 2)
-        {
-            dinoSpawnScript.SpawnRate = 8;
-        }
-        else if (SlideValue >= 1)
-        {
-            dinoSpawnScript.SpawnRate = 10;
-        }
-        Save();
+        float value = DinoSpawnSlider.value;
+        
+        Save((int)value);
+        
+        
+#if UNITY_EDITOR
+        
+        Debug.Log("Slider Value: " + DinoSpawnSlider.value);
+#endif
         
     }
 
@@ -216,18 +216,24 @@ public class PauseMenu : MonoBehaviour
 
     // FUTHER OPTIONS
 
-
-
-    // Saved data
-
+    
     private void Load()
     {
-        dinoSpawnScript.SpawnRate = PlayerPrefs.GetFloat("Spawn Rate");
+        dinoSpawnScript.spawnRate = PlayerPrefs.GetFloat("rateOfDinoSpawn");
+        
+#if UNITY_EDITOR                                
+
+            Debug.Log("Save found, Spawn rate is now: " + dinoSpawnScript.spawnRate);
+#endif
+        
     }
 
-    private void Save()
+    // Saved data
+    private void Save(int value)
     {
-        PlayerPrefs.SetFloat("Spawn Rate", dinoSpawnScript.SpawnRate);
+        dinoSpawnScript.spawnRate = value;
+        
+        PlayerPrefs.SetFloat("rateOfDinoSpawn",  value);
 
     }
 }

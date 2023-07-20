@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,16 +24,20 @@ public class PoinSystem : MonoBehaviour
 
     [SerializeField] private GameObject DinoHat1, DinoHat2, DinoHat3, DinoHat4, DinoHat5, DinoHat6, DinoHat7, DinoHat8, DinoHat9, DinoHat10;
 
+    [SerializeField] private GameObject confetti;
     
 
     [SerializeField] private PauseMenu pause;
     private Player player;
 
+    private DinoSpawner _dinoSpawnScript;
 
 
     private void Awake()
     {
         instance = this;
+        _dinoSpawnScript = FindObjectOfType<DinoSpawner>();
+        confetti.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -59,21 +64,33 @@ public class PoinSystem : MonoBehaviour
         //_highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
     }
 
+#if UNITY_EDITOR
     
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AddPoint();
+        }
+    }
+    
+#endif
+
+
+
+
     public void AddPoint()
     {
         int point = 1;
-        int MaxScore = 20;
+        int MaxScore = 10;
 
         _score += point;
         //_highScore = _score;
 
-      
 
-
-        
-       
-        
+#if UNITY_EDITOR
+        Debug.Log("Score: " + _score);
+#endif
 
         if(_score == 1)
         {
@@ -107,7 +124,7 @@ public class PoinSystem : MonoBehaviour
         {
             DinoHat8.SetActive(true);
         }
-        else if (_score == 10)
+        else if (_score == 9)
         {
             DinoHat9.SetActive(true);
             
@@ -122,18 +139,20 @@ public class PoinSystem : MonoBehaviour
 
             player.Obliterate();
             
-
-
             DinoHat10.SetActive(true);
             
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 
+            confetti.SetActive(true);
+            
             _score = NewScore;
             //_highScore = NewScore;
-            _scoreText.text = "Nível Completo!";
-            Time.timeScale = 0f; 
+            _scoreText.text = "NÃ­vel Completo!";
+            
+            Destroy(_dinoSpawnScript);
+    
             //_highScoreText.text = "HIGHSCORE: " + _highScore.ToString();
         }
         //Debug.Log("Score is: " + _score);

@@ -536,6 +536,10 @@ PrefabInstance:
       propertyPath: _Claw
       value: 
       objectReference: {fileID: 31740662}
+    - target: {fileID: 8256689047694983326, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: dinoSpawnScript
+      value: 
+      objectReference: {fileID: 2145433078}
     - target: {fileID: 8256689047882690399, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2114,8 +2118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DinoPrefab: {fileID: 4428204696262217312, guid: 30a2a4725c71576419f94b568f55555e, type: 3}
-  TimeToSpawn: 1.3
-  SpawnRate: 3
+  spawnRate: 5
 --- !u!4 &2145433079
 Transform:
   m_ObjectHideFlags: 0

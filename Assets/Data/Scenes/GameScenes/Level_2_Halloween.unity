@@ -1486,6 +1486,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 407639193277595676, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386331459492619678, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 584
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386331459492619678, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -196.06247
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386331459492619678, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -737
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407902546865241032, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407902546865241032, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -196.06247
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407902546865241032, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -737.00006
+      objectReference: {fileID: 0}
     - target: {fileID: 6419077960034823046, guid: 7316f850ce2882c40899aabdbc7f6198, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1777,8 +1805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DinoPrefab: {fileID: 3412746770361300228, guid: 64a70683671108149b12197a233a2338, type: 3}
-  TimeToSpawn: 1.3
-  SpawnRate: 3
+  spawnRate: 5
 --- !u!4 &1731945430
 Transform:
   m_ObjectHideFlags: 0

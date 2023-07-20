@@ -14,29 +14,40 @@ public class AudioHandler : MonoBehaviour
   
     private void DataCheck()
     {
-        if (PlayerPrefs.HasKey("AudioVolume"))
+        if (!PlayerPrefs.HasKey("GameVolume"))
         {
-            PlayerPrefs.SetFloat("AudioVolume", 0.5f);
+            PlayerPrefs.SetFloat("GameVolume", 0.7f);
         }
         else
+        {
             Load();
+        }
+            
     }
-
 
     public void ChangeVolume()
     {
-        AudioListener.volume = _slider.value;
-        Save();
+        float volume = _slider.value;
+
+        Save(volume);
+        
     }
 
     private void Load()
     {
-        _slider.value = PlayerPrefs.GetFloat("AudioVolume");
+        _slider.value = PlayerPrefs.GetFloat("GameVolume");
     }
 
-   private void Save()
+   private void Save(float volume)
    {
-        PlayerPrefs.SetFloat("AudioVolume", _slider.value);
+       AudioListener.volume = volume;
+       
+        PlayerPrefs.SetFloat("GameVolume",AudioListener.volume);
+        
+#if UNITY_EDITOR
+        Debug.Log("Game Volume: " + AudioListener.volume);
+       
+#endif
 
    }
 }

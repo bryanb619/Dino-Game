@@ -567,8 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DinoPrefab: {fileID: 6983576240263414938, guid: b80c98807a27dfd43ad83ba79b4e54fe, type: 3}
-  TimeToSpawn: 1.3
-  SpawnRate: 3
+  spawnRate: 5
 --- !u!4 &440408214
 Transform:
   m_ObjectHideFlags: 0
@@ -1593,6 +1592,10 @@ PrefabInstance:
       propertyPath: _Claw
       value: 
       objectReference: {fileID: 18198024}
+    - target: {fileID: 8256689047694983326, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
+      propertyPath: dinoSpawnScript
+      value: 
+      objectReference: {fileID: 440408213}
     - target: {fileID: 8256689047882690399, guid: b40354b5c75a1a5478b6606fb865d601, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
