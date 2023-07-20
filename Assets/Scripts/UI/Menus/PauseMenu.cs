@@ -57,6 +57,7 @@ public class PauseMenu : MonoBehaviour
         if (!PlayerPrefs.HasKey("rateOfDinoSpawn"))
         {
             PlayerPrefs.SetFloat("rateOfDinoSpawn", 5f);
+            
 #if UNITY_EDITOR                                
 
             Debug.Log("No Save found, Spawn rate is now: " + dinoSpawnScript.spawnRate);
@@ -66,7 +67,6 @@ public class PauseMenu : MonoBehaviour
         {
             Load();
         }
-           
     }
     
     void Update()
@@ -219,7 +219,8 @@ public class PauseMenu : MonoBehaviour
     
     private void Load()
     {
-        dinoSpawnScript.spawnRate = PlayerPrefs.GetFloat("rateOfDinoSpawn");
+        dinoSpawnScript.spawnRate   = PlayerPrefs.GetFloat("rateOfDinoSpawn");
+        DinoSpawnSlider.value       = PlayerPrefs.GetFloat("rateOfDinoSpawn");;
         
 #if UNITY_EDITOR                                
 

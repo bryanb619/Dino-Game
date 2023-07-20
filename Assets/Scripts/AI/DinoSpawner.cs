@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class DinoSpawner : MonoBehaviour
 {
     [SerializeField]    private GameObject DinoPrefab;

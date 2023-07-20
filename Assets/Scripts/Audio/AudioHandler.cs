@@ -36,6 +36,9 @@ public class AudioHandler : MonoBehaviour
     private void Load()
     {
         _slider.value = PlayerPrefs.GetFloat("GameVolume");
+#if UNITY_EDITOR
+        Debug.Log("Game Volume: " + AudioListener.volume);
+#endif
     }
 
    private void Save(float volume)
